@@ -7,5 +7,7 @@
 	<!-- my와 bean: myBean
 	
 	 -->
-	<bean id="myBean" class="app3.MyBeanStyleB"/>
+	<bean id="myBean1" class="app3.MyBeanStyleA" scope="prototype"/>
+	<bean id="myBean2" class="app3.MyBeanStyleB" init-method="myInit" 
+	destroy-method="myDestroy"/>
 </beans>

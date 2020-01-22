@@ -1,7 +1,18 @@
 package app3;
-//상위 인터페이스
-public interface MyBeanStyle {
-	public void hello(String name);
+
+public abstract class MyBeanStyle {
+	public abstract void hello(String name);
+	
+	//객체가 생성될 때 한번 호출되는 메소드
+	public void myInit() {
+		System.out.println("Init...");
+	}
+	//객체가 소멸될 때 한번 호출되는 메소드
+	public void myDestroy() {
+		System.out.println("Destroy...");
+	}
+	
+	
 	
 }
 
