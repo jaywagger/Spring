@@ -4,7 +4,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- <bean id="tv" class="dl.exam01.SamsungTV"/> -->
-	<bean id="tv" class="dl.exam01.LgTV"/>
+	
+	<bean id="speaker" class="book.exam.constructor.AppleSpeaker" />
+	<!-- <bean id="tv" class="book.exam.LgTV"> -->
+	<bean id="tv" class="book.exam.constructor.SamsungTV">
+	<constructor-arg ref="speaker"/>
+	</bean>
 	
 	<bean id="mydao" class="di.constructor.basic.MemberDAO"/>
 	<bean id="insa" class="di.constructor.basic.InsaImpl"> 
@@ -16,5 +21,16 @@
 	<constructor-arg ref="d"/>		
 	</bean>
 	
+	<bean id="logic" class="di.constructor02.LogicImpl"/>
+	<bean id="service" class="di.constructor02.ServiceImpl">
+		<constructor-arg ref="logic"/>	
+		<constructor-arg value="이민호"/>	
+		<constructor-arg value="안녕"/>	
+	</bean>
+	
+	<bean id="dao" class="di.constructor03.OracleArticleDAO"/>
+	<bean id="manager" class="di.constructor03.WriteArticleMgr">
+	<constructor-arg ref="dao"/>
+	</bean>
 	
 </beans>

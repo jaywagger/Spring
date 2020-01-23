@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- 
+		bean을 생성할 떄 constructor-args 요소가 없으면 기본 생성자를 호출해서 객체를 생성한다.
+ -->
+	<bean id="dao" class="di.setter.basic.MemberDAO"/>
+	<bean id="insa" class="di.setter.basic.InsaImpl"> 
+		<property name="dao" ref="dao"/>	
+		<!-- name의 dao는 insalInpl의 세터 메서드 set+(이름)이다 -->
+	</bean>
+	
+	<bean id="d" class="di.setter01.Dice"/>
+	<bean id="p" class="di.setter01.Player">
+		<property name="d" ref="d"/>
+	</bean>
+	
+<!-- <bean id="logic" class="di.setter02.LogicImpl"/>
+	<bean id="service" class="di.setter02.ServiceImpl">
+		<property name="mylogic" ref="logic"></property>
+		<property name="name" value="이민호"></property>
+		<property name="msg" value="안녕"></property>
+	</bean> -->
+	
+	<bean id="logic" class="di.setter02.LogicImpl"/>
+	<bean id="service" class="di.setter02.ServiceImpl">
+		<property name="mylogic" ref="logic"></property>
+		<constructor-arg value="현빈"></constructor-arg>
+		<constructor-arg value="안녕"></constructor-arg>
+		
+	</bean>
+	
+	
+</beans>
